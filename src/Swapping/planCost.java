@@ -1,12 +1,17 @@
 package Swapping;
 
+import java.text.DecimalFormat;
+
 public class planCost {
     public static void main(String[] args) {
-        int planCost = 699;
-        float gst = 0.18f;
+        int basePrice = 699;
+        float gst = 18f/100;
 
-        float tax = 699 * gst;
-        System.out.println("Total cost :"+(planCost) +tax);
+        float totalPrice = basePrice *(1+gst);
+        DecimalFormat df = new DecimalFormat("#.00");
+        String finalPrice = df.format(totalPrice);
+        System.out.println("final price : "+finalPrice);
+
 
     }
 }
