@@ -11,13 +11,11 @@ public class swap4NoTemp {
         System.out.println("Before swap");
         System.out.println("num1: " + fNum + "\t" + "num2: " + sNum + "\t" + "num3: " + tNum + "\t" + "num4: " + jNum);
         //swapping
-        fNum = fNum + sNum + tNum +jNum;
-        sNum = fNum - (sNum+tNum+jNum);
-        tNum = fNum - (sNum + tNum +jNum);
-        jNum = fNum - (sNum + tNum +jNum);
-        fNum = fNum - (sNum + tNum +jNum);
-
-
+        fNum = fNum + sNum + tNum + jNum;
+        sNum = fNum - (sNum + tNum + jNum);
+        tNum = fNum - (sNum + tNum + jNum);
+        jNum = fNum - (sNum + tNum + jNum);
+        fNum = fNum - (sNum + tNum + jNum);
 
 
         System.out.println("After swap");
