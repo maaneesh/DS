@@ -1,4 +1,4 @@
-package Swapping;
+package Variables;
 
 import java.text.DecimalFormat;
 

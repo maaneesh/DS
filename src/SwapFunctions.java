@@ -1,5 +1,4 @@
 public class SwapFunctions {
-    public static void main(String[] args) {
 
         public static void swap2withTemp () {
             int fNum = 300;
@@ -112,5 +111,4 @@ public class SwapFunctions {
             System.out.println("After swap");
             System.out.println("num1: " + fNum + "\t" + "num2: " + sNum + "\t" + "num3: " + tNum + "\t" + "num4: " + jNum);
         }
-    }
 }
