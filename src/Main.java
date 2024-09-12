@@ -1,52 +1,91 @@
-import static Conditionals.FlowControl.*;
+import static Conditionals.Numbers.*;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        //1.
-        printMax(4, 6);
-        //2.
-        maxOfThree(6, 7, 7);
-        //3.
-        divisibleByThree();
-        //4.
-        divisibleByFive();
-        //5.
-        divisibleByEleven();
+        //1
+       // printNaturalNumbers();//2
+       // printToHundred();
+        // 3
+       // printOddNum();
+        //4
+       // evenSum();
+        //5
+       // oddSum();
         //6
-        evenOrOdd(67);
-        // 7
-        isLeapYear();
+       //  multiplicationTable();
+        //7
+       // countDigits();
         //8
-        isDigit();
+        //sumOfDigits();
         //9
-        isAlphabet();
+       // reverseNatural();
         //10
-        isDigitAlphabetOrSpecial();
+       // isPrime();
+       // System.out.println(isPrime(9));
         //11
-        isPositiveOrNegative();
+        //listOfPrime();
         //12
-        convertToFahrenheit();
+     //   sumOfPrime();
         //13
-        convertCelsius();
+//        isArmstrong(); ASK HOW TO DO IT? _________________________________???
+   //     printArmstrong();
         //14
-        vowelOrConsonant();
-        //15
-        upperOrLower();
-        //16
-        dayOfTheWeek();
-        //17
-        daysInAMonth();
-        //18
-        triangleType();
-        //19
-        eligibleToVote();
-        //20
-        float myGrade = 97;
-        checkDivision(myGrade);
-        //21
-        gradeCalculator();
+        listArmstrong();
+
+
+
+
+
+
+
+//
+//        //1.
+//        printMax(4, 6);
+//        //2.
+//        maxOfThree(6, 7, 7);
+//        //3.
+//        divisibleByThree();
+//        //4.
+//        divisibleByFive();
+//        //5.
+//        divisibleByEleven();
+//        //6
+//        evenOrOdd(67);
+//        // 7
+//        isLeapYear();
+//        //8
+//        isDigit();
+//        //9
+//        isAlphabet();
+//        //10
+//        isDigitAlphabetOrSpecial();
+//        //11
+//        isPositiveOrNegative();
+//        //12
+//        convertToFahrenheit();
+//        //13
+//        convertCelsius();
+//        //14
+//        vowelOrConsonant();
+//        //15
+//        upperOrLower();
+//        //16
+//        dayOfTheWeek();
+//        //17
+//        daysInAMonth();
+//        //18
+//        triangleType();
+//        //19
+//        eligibleToVote();
+//        //20
+//        float myGrade = 97;
+//        checkDivision(myGrade);
+//        //21
+//        gradeCalculator();
+
+
+
 
 
     }
