@@ -359,44 +359,213 @@ public class Numbers {
         System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
     }
 
-    public static void powerFunc(){
+    public static void powerFunc() {
         System.out.println("22. function calculates power ");
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
-        int base= sc.nextInt();
+        int base = sc.nextInt();
         System.out.print("Power of " + base + ": ");
         int exponent = sc.nextInt();
         int result = calculatePower(base, exponent);
         System.out.println("Result: " + result);
     }
-    public static void powerFuncII(){
+
+    public static void powerFuncII() {
         System.out.println("23. function calculates power ");
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
-        int base= sc.nextInt();
+        int base = sc.nextInt();
         System.out.print("Power of " + base + ": ");
         int exponent = sc.nextInt();
         int result = 1;
         if (exponent == 1) result = base;
-        for (int i =1; i<= exponent; i++){
+        for (int i = 1; i <= exponent; i++) {
             result *= base;
 
         }
         System.out.println("Result: " + result);
     }
-    public static void powerFuncIII(){
+
+    public static void powerFuncIII() {
         System.out.println("24. function calculates power using pow method ");
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter base number: ");
         int base = sc.nextInt();
         System.out.println("Power of " + base + ": ");
         int exponent = sc.nextInt();
-        int result  = (int) Math.pow(base,exponent);
+        int result = (int) Math.pow(base, exponent);
         System.out.println("Result: " + result);
 
     }
 
-    public static int calculatePower(int numIn,   int power) {
+    public static void checkPalindrome() {
+        System.out.println("25. Check if a number is palindrome.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int numIn = number;
+        int reversed = 0;
+        while (number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+        if (numIn == reversed) {
+            System.out.println(numIn + " is a palindrome.");
+        } else {
+            System.out.println(numIn + " is not a palindrome.");
+        }
+
+    }
+
+    public static void fibonacciFunction() {
+        System.out.println("26. Fibonacci number calculations ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        int a = 0;
+        int b = 1;
+        System.out.println("Fibonacci number calculations ");
+        for (int i = 0; i <= number; i++) {
+            System.out.print(a + " ");
+            int next = a + b;
+            a = b;
+            b = next;
+
+        }
+
+    }
+
+    public static void fibonacciFunctionII() {
+        System.out.println("27. Fibonacci number calculations using recursion ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int fibNum = recursiveFib(number);
+        System.out.println(fibNum);
+
+
+    }
+
+    public static int recursiveFib(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Number must be non-negative");
+        }
+        if (num == 0) return 0;
+        else if (num == 1) return 1;
+        return recursiveFib(num - 1) + recursiveFib(num - 2);
+
+    }
+
+    public static void frequencyOfDigits() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int[] frequency = new int[10];
+
+        while (number != 0) {
+            int digit = number % 10;
+            frequency[digit]++;
+            number /= 10;
+        }
+        for (int i = 0; i < 10; i++) {
+            if (frequency[i] > 0) {
+                System.out.println(i + " " + frequency[i]);
+            }
+
+        }
+
+    }
+
+    public static void asciiValues
+            () {
+        System.out.println("29. ASCII Characters and their values:");
+
+        for (int i = 0; i <= 127; i++) {
+            char asciiChar = (char) i;
+            System.out.println("ASCII value " + i + " = " + asciiChar);
+        }
+    }
+    public static void alphabet(){
+        System.out.println("30. Print a-z");
+        for (char ch = 'a'; ch <= 'z' ; ch++) {
+            System.out.print(ch+" ");
+
+        }
+        System.out.println();
+    }
+    public static void alphabetCapitalized(){
+        System.out.println("31. Print A-Z");
+        for (char ch = 'A'; ch <= 'Z' ; ch++) {
+            System.out.print(ch +" ");
+        }
+        System.out.println();
+    }
+    public static void factors(){
+        System.out.println("33. Factors of a given number");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+         for (int i = 1; i <= number; i++) {
+             if (number % i == 0) {
+                 System.out.print(i+" ");
+             }
+         }
+    }
+    public static void HCF(){
+        System.out.println("34. HCF of a given numbers");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+        int hcf =1;
+        for (int i = 1; i < Math.min(num1,num2) ; i++) {
+
+            if (num1 % i == 0 && num2 % i == 0) {
+                hcf = i;
+            }
+            
+        }
+        System.out.println("HCF of "+num1+" and "+num2+" is "+hcf);
+        
+    }
+
+    public static void findLCM (){
+        System.out.println("35. LCM of two numbers");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter 2nd number: ");
+        int num2 = sc.nextInt();
+         int hcf = 1;
+         for (int i = 1; i < Math.min(num1,num2) ; i++) {
+             if (num1 % i == 0 && num2 % i == 0) {
+                 hcf = i;
+             }
+         }
+         int lcm = (num1*num2)/hcf;
+        System.out.println("LCM of "+num1+" and "+num2+" is "+lcm);
+
+    }
+
+    public static void primeFactors(){
+        System.out.println("36. Prime Factors of a given number");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        for (int i = 2; i <= num; i++) {
+            while (num % i == 0 && isPrime(i)) {
+                System.out.print(i + " ");
+                num /= i;  // Divide the number by the factor
+            }
+        }
+    }
+
+    public static int calculatePower(int numIn, int power) {
 
         if (power == 0) {
             return 1;
@@ -404,7 +573,7 @@ public class Numbers {
             return numIn;
 
         } else {
-            return numIn*calculatePower(numIn, power -1);
+            return numIn * calculatePower(numIn, power - 1);
 
         }
     }

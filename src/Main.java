@@ -46,7 +46,17 @@ public class Main {
        //23
         // powerFuncII();
         //24
-        powerFuncIII();
+       // powerFuncIII();
+       // checkPalindrome();
+        //fibonacciFunctionII();
+       // frequencyOfDigits();
+       // asciiValues();
+//        alphabet();
+//        alphabetCapitalized();
+     //   factors();
+      //  HCF();
+//        findLCM();
+primeFactors();
 
 
 
