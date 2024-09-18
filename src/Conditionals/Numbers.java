@@ -204,14 +204,15 @@ public class Numbers {
         }
 
     }
+
     public static boolean isArmstrong(int numIn) {
 
-        if (numIn < 0 ){
+        if (numIn < 0) {
             return false;
         }
         int num = numIn;
         int length = 0;
-        int armstrongSum =0;
+        int armstrongSum = 0;
 
         while (num > 0) {
             length += 1;
@@ -219,11 +220,11 @@ public class Numbers {
         }
         num = numIn;
         while (num > 0) {
-           int  digit = num % 10;
+            int digit = num % 10;
             armstrongSum += (int) Math.pow(digit, length);
             num /= 10;
         }
-      return armstrongSum == numIn;
+        return armstrongSum == numIn;
     }
 
     public static void listArmstrong() {
@@ -238,6 +239,175 @@ public class Numbers {
                 System.out.print(i + " ");
             }
         }
+        sc.close();
     }
+
+    //Checks if a number iw perfect
+    public static boolean isPerfect(int numIn) {
+
+
+        boolean isPerfect = false;
+
+        int sum = 0;
+        for (int i = 1; i < numIn; i++) {
+            if (numIn % i == 0) {
+                sum += i;
+            }
+        }
+        if (sum == numIn) {
+            isPerfect = true;
+        }
+        return isPerfect;
+    }
+
+    public static void perfectList() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("16. Print a list of perfect numbers.");
+        System.out.print("Enter a target number: ");
+        int numIn = sc.nextInt();
+        System.out.print("Perfect numbers: ");
+        for (int i = 1; i < numIn; i++) {
+            if (isPerfect(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static int factorial(int numIn) {
+        if (numIn == 0 || numIn == 1) return 1;
+        return numIn * factorial(numIn - 1);
+    }
+
+    public static boolean strongNumber(int numIn) {
+        //17/ strong number
+        int originalNum = numIn;
+        int perfectSum = 0;
+        while (numIn > 0) {
+            int digit = numIn % 10;
+            perfectSum += factorial(digit);
+            numIn /= 10;
+        }
+        if (perfectSum == originalNum) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public static void strongList() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("18. Print a list of strong numbers.");
+        System.out.print("Enter a number: ");
+        int numIn = sc.nextInt();
+        System.out.print("Strong numbers up to " + numIn + ": ");
+        for (int i = 1; i < numIn; i++) {
+            if (strongNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static void swapFirstAndLast(
+    ) {
+        System.out.println("19. Swap first and last digits.");
+        System.out.print("Enter a number: ");
+        Scanner sc = new Scanner(System.in);
+        int numIn = sc.nextInt();
+        if (numIn > 1 && numIn < 10) {
+            System.out.println(numIn);
+            return;
+        }
+        int lastDigit = numIn % 10;
+
+        int firstDigit = numIn;
+        while (firstDigit >= 10) {
+            firstDigit /= 10;
+        }
+        int middlePart = numIn % (int) Math.pow(10, (int) Math.log10(numIn)); // Remove the first digit
+        middlePart /= 10; // Remove the last digit
+
+        int numOfDigits = (int) Math.log10(numIn);
+
+        int swappedNumber = lastDigit * (int) Math.pow(10, numOfDigits) + middlePart * 10 + firstDigit;
+
+        System.out.println("Number after swapping first and last digits: " + swappedNumber);
+    }
+
+    public static void swapNums(int fNum, int lNum) {
+        System.out.println("20. Swap using temp variable");
+        System.out.println("Before");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+
+        int temp = fNum;
+        fNum = lNum;
+        lNum = temp;
+
+        System.out.println("After");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+    }
+
+    public static void swapNumsII(int fNum, int lNum) {
+        System.out.println("21. Swap without using temp variable");
+        System.out.println("Before");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+
+
+        fNum = fNum + lNum;
+        lNum = fNum - lNum;
+        fNum = fNum - lNum;
+        System.out.println("After");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+    }
+
+    public static void powerFunc(){
+        System.out.println("22. function calculates power ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int base= sc.nextInt();
+        System.out.print("Power of " + base + ": ");
+        int exponent = sc.nextInt();
+        int result = calculatePower(base, exponent);
+        System.out.println("Result: " + result);
+    }
+    public static void powerFuncII(){
+        System.out.println("23. function calculates power ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int base= sc.nextInt();
+        System.out.print("Power of " + base + ": ");
+        int exponent = sc.nextInt();
+        int result = 1;
+        if (exponent == 1) result = base;
+        for (int i =1; i<= exponent; i++){
+            result *= base;
+
+        }
+        System.out.println("Result: " + result);
+    }
+    public static void powerFuncIII(){
+        System.out.println("24. function calculates power using pow method ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter base number: ");
+        int base = sc.nextInt();
+        System.out.println("Power of " + base + ": ");
+        int exponent = sc.nextInt();
+        int result  = (int) Math.pow(base,exponent);
+        System.out.println("Result: " + result);
+
+    }
+
+    public static int calculatePower(int numIn,   int power) {
+
+        if (power == 0) {
+            return 1;
+        } else if (power == 1) {
+            return numIn;
+
+        } else {
+            return numIn*calculatePower(numIn, power -1);
+
+        }
+    }
+
 
 }

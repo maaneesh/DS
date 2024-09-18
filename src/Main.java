@@ -31,7 +31,24 @@ public class Main {
 //        isArmstrong(); ASK HOW TO DO IT? _________________________________???
    //     printArmstrong();
         //14
-        listArmstrong();
+        //listArmstrong();
+       // isPerfect();
+       // perfectList();
+
+//        System.out.println("Factorial: "+ factorial(1) );
+      //18
+//        strongList();
+       // swapFirstAndLast();
+       // swapNums(20,30);
+       // swapNumsII(20,30);
+        //22.
+       // powerFunc();
+       //23
+        // powerFuncII();
+        //24
+        powerFuncIII();
+
+
 
 
 
