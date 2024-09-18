@@ -1,307 +1,582 @@
 package Conditionals;
 
 import java.util.Scanner;
-
+///Flow Control Assignemnts
+///
 public class FlowControl {
     private static final Scanner sc = new Scanner(System.in);
 
-    //1. print max
-    public static void printMax(int a, int b) {
-        int max = 0;
-        if (a >= b) max = a;
-        else max = b;
-        System.out.println("Max is: " + max);
+    //1.
+    public static void printNaturalNumbers() {
+        System.out.println("1.Print Natural Numbers\n");
+        System.out.println("Enter a number");
+        int num = sc.nextInt();
+        if (num < 1) System.out.println("Natural numbers are positive numbers only.");
+        for (int i = 1; i <= num; i++) {
+            System.out.print(i + "\t");
+        }
+        sc.close();
+
     }
 
-    //2. print max of 3
-    public static void maxOfThree(int a, int b, int c) {
-        int max = a;
-        if (b >= max) max = b;
-        else if (c >= max) {
-            max = c;
+    //2.
+    public static void printToHundred() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.print(i + "\t");
 
         }
-        System.out.println("Max is: " + max);
     }
 
-    //3. check divisibility
-    public static void divisibleByThree() {
-        System.out.print("Enter a number:");
-        int num = sc.nextInt();
-        if (num % 3 == 0) System.out.println("Divisible by 3");
-        else System.out.println("Not divisible by 3");
+    //3.
+    public static void printOddNum() {
+        System.out.print("3.Print odd numbers \n Odd numbers: ");
+        for (int i = 1; i < 100; i++) {
+            if ((i % 2 != 0)) System.out.print(i + " ");
 
-        sc.close();
+        }
     }
+
     //4.
+    public static void evenSum() {
+        System.out.print("4. Sum of even numbers \n Enter a number: ");
+        int target = sc.nextInt();
+        int sum = 0;
+        for (int i = 0; i <= target; i++) {
+            if (i % 2 == 0) sum += i;
 
-    public static void divisibleByFive() {
-        System.out.print("Enter a number:");
-        int num = sc.nextInt();
-        if (num % 5 == 0) System.out.println("Divisible by 5");
-        else System.out.println("Not divisible by 5");
-
-        sc.close();
+        }
+        System.out.println("Sum: " + sum);
     }
-    //5.
 
-    public static void divisibleByEleven() {
-        System.out.print("Enter a number:");
-        int num = sc.nextInt();
-        if (num % 11 == 0) System.out.println("Divisible by 11");
-        else System.out.println("Not divisible by 11");
+    //5.
+    public static void oddSum() {
+        System.out.print("5. Enter a number: ");
+        int target = sc.nextInt();
+        int sum = 0;
+        for (int i = 0; i <= target; i++) {
+            if (i % 2 != 0) sum += i;
+
+        }
+        System.out.println("Sum: " + sum);
         sc.close();
     }
 
     //6.
+    public static void multiplicationTable() {
+        System.out.print("6. Enter a number: ");
+        int num = sc.nextInt();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " * " + i + " = " + num * i);
 
-    public static void evenOrOdd(int num) {
-        if (num % 2 == 0) System.out.println(num + " is an even number.");
-        else System.out.println(num + " is an odd number.");
+        }
+        sc.close();
     }
+
     //7.
+    public static void countDigits() {
+        System.out.println("7. Count number of digits in a number.");
+        System.out.print("Enter a number: ");
+        String userNum = sc.next();
+        int length = 0;
 
-    public static void isLeapYear() {
-        System.out.print("Enter the year: ");
-        int year = sc.nextInt();
-        if (year % 4 == 0) {
-            if ((year % 100 == 0) && (year % 400 == 0))
-                System.out.println(year + " is a leap year");
-            else if (year % 100 == 0) {
-                System.out.println(year + " is not leap year");
-
+        for (int i = 0; i < userNum.length(); i++) {
+            if (Character.isDigit(userNum.charAt(i))) {
+                length += 1;
             }
         }
-        System.out.println(year + " is not leap year");
+        System.out.print("Length : " + length);
+        sc.close();
+
     }
 
-    public static boolean LeapYear(int year) {
+    //8.
+    public static void sumOfDigits() {
+        System.out.println("8. Sum of the digits of a number");
+        System.out.print("Enter a number: ");
+        String numIn = sc.next();
+        int length = numIn.length() - 1;
+        int intIn = Integer.parseInt(numIn);
+        int sum = 0;
+        while (intIn > 0) {
+            sum += intIn % 10;
+            intIn = intIn / 10;
 
+        }
+        System.out.println("Sum of digits in " + numIn + " is " + sum);
+        sc.close();
+    }
 
-        if (year % 4 == 0) {
-            if ((year % 100 == 0) && (year % 400 == 0))
-                return true;
-            else if (year % 100 == 0) {
-                return false;
+    //9 print natural numbers in reverse
+    public static void reverseNatural() {
+        System.out.println("9. Print Natural numbers in reverse.");
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        for (int i = num; i > 0; i--) {
+            System.out.print(i + " ");
+
+        }
+    }
+
+    //10 check prime
+    public static void isPrime() {
+        System.out.println("10. Check if a number is prime: ");
+        System.out.println("Enter a number: ");
+        int numIn = sc.nextInt();
+
+        if (numIn <= 1) {
+            System.out.println(numIn + " is not Prime");
+            return;
+        }
+        boolean isPrime = true;
+
+        for (int i = 2; i < numIn / 2; i++) {
+            if (numIn % i == 0) {
+                isPrime = false;
+                break;
             }
+        }
+        if (isPrime) {
+            System.out.println(numIn + " is Prime.");
+        } else System.out.println(numIn + " is not Prime");
+
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num == 2) return true;
+        if (num % 2 == 0) return false;
+
+
+        for (int i = 3; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+
+    }
+
+    public static void listOfPrime() {
+        System.out.println("11. Prints a series of prime numbers.");
+        System.out.print("Enter a number: ");
+        int numIn = sc.nextInt();
+        for (int i = 0; i < numIn; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static void sumOfPrime() {
+        System.out.println("12. Print the sum of prime numbers.");
+        System.out.print("Enter a number: ");
+        int numIn = sc.nextInt();
+        int sum = 0;
+        for (int i = 2; i <= numIn; i++) {
+            if (isPrime(i)) {
+                sum += i;
+            }
+        }
+        System.out.println("Sum of Prime numbers: " + sum);
+    }
+
+    public static boolean printArmstrong() {
+        System.out.println("13.  Check if a number is Armstrong.");
+        System.out.print("Enter a number: ");
+        int numIn = sc.nextInt();
+        int num = numIn;
+        int length = 0;
+        int digit;
+        int armstrongSum = 0;
+        while (num > 0) {
+            length += 1;
+            num /= 10;
+        }
+        num = numIn;
+        while (num > 0) {
+            digit = num % 10;
+            armstrongSum += (int) Math.pow(digit, length);
+            num /= 10;
+        }
+        if (armstrongSum == numIn) {
+            System.out.println(numIn + " is Armstrong");
+            return true;
+        } else {
+            System.out.println(numIn + " is not Armstrong");
+            return false;
+        }
+
+    }
+
+    public static boolean isArmstrong(int numIn) {
+
+        if (numIn < 0) {
+            return false;
+        }
+        int num = numIn;
+        int length = 0;
+        int armstrongSum = 0;
+
+        while (num > 0) {
+            length += 1;
+            num /= 10;
+        }
+        num = numIn;
+        while (num > 0) {
+            int digit = num % 10;
+            armstrongSum += (int) Math.pow(digit, length);
+            num /= 10;
+        }
+        return armstrongSum == numIn;
+    }
+
+    public static void listArmstrong() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("14. Print a list of Armstrong numbers.");
+        System.out.print("Enter a number: ");
+        int numIn = sc.nextInt();
+        System.out.print("Armstrong numbers up to " + numIn + ": ");
+
+        for (int i = 1; i <= numIn; i++) {
+            if (isArmstrong(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        sc.close();
+    }
+
+    //Checks if a number iw perfect
+    public static boolean isPerfect(int numIn) {
+
+
+        boolean isPerfect = false;
+
+        int sum = 0;
+        for (int i = 1; i < numIn; i++) {
+            if (numIn % i == 0) {
+                sum += i;
+            }
+        }
+        if (sum == numIn) {
+            isPerfect = true;
+        }
+        return isPerfect;
+    }
+
+    public static void perfectList() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("16. Print a list of perfect numbers.");
+        System.out.print("Enter a target number: ");
+        int numIn = sc.nextInt();
+        System.out.print("Perfect numbers: ");
+        for (int i = 1; i < numIn; i++) {
+            if (isPerfect(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static int factorial(int numIn) {
+        if (numIn == 0 || numIn == 1) return 1;
+        return numIn * factorial(numIn - 1);
+    }
+
+    public static boolean strongNumber(int numIn) {
+        //17/ strong number
+        int originalNum = numIn;
+        int perfectSum = 0;
+        while (numIn > 0) {
+            int digit = numIn % 10;
+            perfectSum += factorial(digit);
+            numIn /= 10;
+        }
+        if (perfectSum == originalNum) {
+            return true;
         }
         return false;
-    }
-    //8.
 
-    public static void isDigit() {
-        System.out.println("Please enter a digit: ");
-        char userIn = sc.next().charAt(0);
-        if (userIn >= '0' && userIn <= '9') {
-            System.out.println(userIn + " is a Number.");
+    }
+
+    public static void strongList() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("18. Print a list of strong numbers.");
+        System.out.print("Enter a number: ");
+        int numIn = sc.nextInt();
+        System.out.print("Strong numbers up to " + numIn + ": ");
+        for (int i = 1; i < numIn; i++) {
+            if (strongNumber(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static void swapFirstAndLast(
+    ) {
+        System.out.println("19. Swap first and last digits.");
+        System.out.print("Enter a number: ");
+        Scanner sc = new Scanner(System.in);
+        int numIn = sc.nextInt();
+        if (numIn > 1 && numIn < 10) {
+            System.out.println(numIn);
+            return;
+        }
+        int lastDigit = numIn % 10;
+
+        int firstDigit = numIn;
+        while (firstDigit >= 10) {
+            firstDigit /= 10;
+        }
+        int middlePart = numIn % (int) Math.pow(10, (int) Math.log10(numIn)); // Remove the first digit
+        middlePart /= 10; // Remove the last digit
+
+        int numOfDigits = (int) Math.log10(numIn);
+
+        int swappedNumber = lastDigit * (int) Math.pow(10, numOfDigits) + middlePart * 10 + firstDigit;
+
+        System.out.println("Number after swapping first and last digits: " + swappedNumber);
+    }
+
+    public static void swapNums(int fNum, int lNum) {
+        System.out.println("20. Swap using temp variable");
+        System.out.println("Before");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+
+        int temp = fNum;
+        fNum = lNum;
+        lNum = temp;
+
+        System.out.println("After");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+    }
+
+    public static void swapNumsII(int fNum, int lNum) {
+        System.out.println("21. Swap without using temp variable");
+        System.out.println("Before");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+
+
+        fNum = fNum + lNum;
+        lNum = fNum - lNum;
+        fNum = fNum - lNum;
+        System.out.println("After");
+        System.out.println("firstNum: " + fNum + " lastNum: " + lNum);
+    }
+
+    public static void powerFunc() {
+        System.out.println("22. function calculates power ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int base = sc.nextInt();
+        System.out.print("Power of " + base + ": ");
+        int exponent = sc.nextInt();
+        int result = calculatePower(base, exponent);
+        System.out.println("Result: " + result);
+    }
+
+    public static void powerFuncII() {
+        System.out.println("23. function calculates power ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int base = sc.nextInt();
+        System.out.print("Power of " + base + ": ");
+        int exponent = sc.nextInt();
+        int result = 1;
+        if (exponent == 1) result = base;
+        for (int i = 1; i <= exponent; i++) {
+            result *= base;
+
+        }
+        System.out.println("Result: " + result);
+    }
+
+    public static void powerFuncIII() {
+        System.out.println("24. function calculates power using pow method ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter base number: ");
+        int base = sc.nextInt();
+        System.out.println("Power of " + base + ": ");
+        int exponent = sc.nextInt();
+        int result = (int) Math.pow(base, exponent);
+        System.out.println("Result: " + result);
+
+    }
+
+    public static void checkPalindrome() {
+        System.out.println("25. Check if a number is palindrome.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int numIn = number;
+        int reversed = 0;
+        while (number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+        if (numIn == reversed) {
+            System.out.println(numIn + " is a palindrome.");
         } else {
-            System.out.println(userIn + " is not a Number.");
+            System.out.println(numIn + " is not a palindrome.");
+        }
+
+    }
+
+    public static void fibonacciFunction() {
+        System.out.println("26. Fibonacci number calculations ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        int a = 0;
+        int b = 1;
+        System.out.println("Fibonacci number calculations ");
+        for (int i = 0; i <= number; i++) {
+            System.out.print(a + " ");
+            int next = a + b;
+            a = b;
+            b = next;
 
         }
-    }
-    //9.
 
-    public static void isAlphabet() {
-        System.out.println("Please enter a character: ");
-        char userIn = sc.next().charAt(0);
-        if ((userIn >= 'A' && userIn <= 'Z') || (userIn >= 'a' && userIn <= 'z')) {
-            System.out.println(userIn + " is in Alphabet.");
+    }
+
+    public static void fibonacciFunctionII() {
+        System.out.println("27. Fibonacci number calculations using recursion ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int fibNum = recursiveFib(number);
+        System.out.println(fibNum);
+
+
+    }
+
+    public static int recursiveFib(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Number must be non-negative");
+        }
+        if (num == 0) return 0;
+        else if (num == 1) return 1;
+        return recursiveFib(num - 1) + recursiveFib(num - 2);
+
+    }
+
+    public static void frequencyOfDigits() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        int[] frequency = new int[10];
+
+        while (number != 0) {
+            int digit = number % 10;
+            frequency[digit]++;
+            number /= 10;
+        }
+        for (int i = 0; i < 10; i++) {
+            if (frequency[i] > 0) {
+                System.out.println(i + " " + frequency[i]);
+            }
+
+        }
+
+    }
+
+    public static void asciiValues
+            () {
+        System.out.println("29. ASCII Characters and their values:");
+
+        for (int i = 0; i <= 127; i++) {
+            char asciiChar = (char) i;
+            System.out.println("ASCII value " + i + " = " + asciiChar);
+        }
+    }
+    public static void alphabet(){
+        System.out.println("30. Print a-z");
+        for (char ch = 'a'; ch <= 'z' ; ch++) {
+            System.out.print(ch+" ");
+
+        }
+        System.out.println();
+    }
+    public static void alphabetCapitalized(){
+        System.out.println("31. Print A-Z");
+        for (char ch = 'A'; ch <= 'Z' ; ch++) {
+            System.out.print(ch +" ");
+        }
+        System.out.println();
+    }
+    public static void factors(){
+        System.out.println("33. Factors of a given number");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+         for (int i = 1; i <= number; i++) {
+             if (number % i == 0) {
+                 System.out.print(i+" ");
+             }
+         }
+    }
+    public static void HCF(){
+        System.out.println("34. HCF of a given numbers");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+        int hcf =1;
+        for (int i = 1; i < Math.min(num1,num2) ; i++) {
+
+            if (num1 % i == 0 && num2 % i == 0) {
+                hcf = i;
+            }
+            
+        }
+        System.out.println("HCF of "+num1+" and "+num2+" is "+hcf);
+        
+    }
+
+    public static void findLCM (){
+        System.out.println("35. LCM of two numbers");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter 2nd number: ");
+        int num2 = sc.nextInt();
+         int hcf = 1;
+         for (int i = 1; i < Math.min(num1,num2) ; i++) {
+             if (num1 % i == 0 && num2 % i == 0) {
+                 hcf = i;
+             }
+         }
+         int lcm = (num1*num2)/hcf;
+        System.out.println("LCM of "+num1+" and "+num2+" is "+lcm);
+
+    }
+
+    public static void primeFactors(){
+        System.out.println("36. Prime Factors of a given number");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        for (int i = 2; i <= num; i++) {
+            while (num % i == 0 && isPrime(i)) {
+                System.out.print(i + " ");
+                num /= i;  // Divide the number by the factor
+            }
+        }
+    }
+
+    public static int calculatePower(int numIn, int power) {
+
+        if (power == 0) {
+            return 1;
+        } else if (power == 1) {
+            return numIn;
+
         } else {
-            System.out.println(userIn + " is not in Alphabet.");
+            return numIn * calculatePower(numIn, power - 1);
 
         }
-    }
-    //10.
-
-    public static void isDigitAlphabetOrSpecial() {
-        System.out.println("Please enter a character: ");
-        char userIn = sc.next().charAt(0);
-        int asciiVal = (int) userIn;
-        System.out.println(asciiVal);
-        if ((asciiVal >= '0' && asciiVal <= '9')) {
-            System.out.println(userIn + " is a number.");
-        } else if ((asciiVal >= 'A' && asciiVal <= 'Z') || (asciiVal >= 'a' && asciiVal <= 'z')) {
-            System.out.println(asciiVal + " is in Alphabet.");
-        } else {
-            System.out.println(asciiVal + " is a special character.");
-
-        }
-        sc.close();
-    }
-    //11.
-
-    public static void isPositiveOrNegative() {
-        System.out.println("Please enter a number: ");
-        int userIn = sc.nextInt();
-        if (userIn < 1) {
-            System.out.println(userIn + " is negative.");
-        } else System.out.println(userIn + " is positive.");
-        sc.close();
-    }
-    //12.
-
-    public static void convertToFahrenheit() {
-        System.out.print("Enter temperature (in Celsius): ");
-        float tempC = sc.nextFloat();
-
-        double tempF = (tempC * 1.8) + 32;
-        System.out.println(tempC + " is " + tempF + "F");
-
-    }
-    //13.
-
-    public static void convertCelsius() {
-        System.out.print("Enter temperature in Fahrenheit: ");
-
-        double tempF = sc.nextFloat();
-        double tempC = ((tempF - 32) * 5) / 9;
-        System.out.println(tempF + " is " + tempC + " Celsius");
-
-    }
-
-    //14.
-    public static void vowelOrConsonant() {
-        System.out.print("Enter a character: ");
-        char letter = sc.next().charAt(0);
-        char inputLower = Character.toLowerCase(letter);
-        if ((inputLower == 'a') || inputLower == 'e' || letter == 'i' || letter == 'o' || letter == 'u') {
-            System.out.println(letter + " is a vowel.");
-
-        } else System.out.println(letter + " is a consonant.");
-        sc.close();
-    }
-
-    //15.
-    public static void upperOrLower() {
-        System.out.print("Enter a character: ");
-        char charIn = sc.next().charAt(0);
-
-        if ((int) charIn >= 65 && (int) charIn <= 90) System.out.println("Uppercase");
-        else if (((int) charIn >= 97 && (int) charIn <= 122)) {
-            System.out.println("Lowercase");
-
-        } else System.out.println("Not an alphabet");
-
-    }
-    //16.
-
-    public static void dayOfTheWeek() {
-        System.out.print("Enter number of the day: ");
-        int dayNum = sc.nextInt();
-        if (dayNum < 1 || dayNum > 7) System.out.println("Enter valid day");
-        switch (dayNum) {
-            case 1:
-                System.out.println("Sunday");
-                break;
-            case 2:
-                System.out.println("Monday");
-                break;
-            case 3:
-                System.out.println("Tuesday");
-                break;
-            case 4:
-                System.out.println("Wednesday");
-                break;
-            case 5:
-                System.out.println("Thursday");
-                break;
-            case 6:
-                System.out.println("Friday");
-                break;
-            case 7:
-                System.out.println("Saturday");
-                break;
-        }
-
-    }
-
-    //17.
-    public static void daysInAMonth() {
-        System.out.println("Enter month: ");
-        String month = sc.next();
-        System.out.println("Enter year: ");
-        int year = sc.nextInt();
-        int length = month.length();
-        String monthLower = month.toLowerCase();
-
-        if ((monthLower.equals("january")) || (monthLower.equals("march")) || (monthLower.equals("may")) || (monthLower.equals("july")) || (monthLower.equals("august")) || (monthLower.equals("october")) || (monthLower.equals("december"))) {
-            System.out.println(month + " has 31 days.");
-        } else if ((monthLower.equals("april")) || (monthLower.equals("june")) || (monthLower.equals("september")) || (monthLower.equals("november"))) {
-            System.out.println(month + " has 30 days.");
-        } else if (monthLower.equals("february")) {
-            if (LeapYear(year)) System.out.println(month + " has 29 days.");
-            else System.out.println(month + " has 28 days.");
-        }
-
-    }
-    //18.
-
-    public static void triangleType() {
-        System.out.print("Enter lengths of each side: ");
-        int side1 = sc.nextInt();
-        int side2 = sc.nextInt();
-        int side3 = sc.nextInt();
-
-        if (side1 == side2 && side2 == side3) {
-            System.out.println("Equilateral triangle");
-        } else if ((side1 == side2) || (side2 == side3) || (side1 == side3)) {
-            System.out.println("Isosceles triangle");
-
-        } else System.out.println("Scalene triangle");
-
-    }
-
-
-    //19
-    public static void eligibleToVote() {
-        System.out.println("enter your age: ");
-        int age = sc.nextInt();
-        if (age >= 18) {
-            System.out.println("Congrats you're eligible to vote");
-        } else System.out.println("You aren't eligible.");
-        sc.close();
-    }
-
-    //20
-    public static void checkDivision(float grade) {
-
-        if (grade >= 60) System.out.println("Grade: 1st Division");
-        else if (grade >= 45) {
-            System.out.println("Grade: 2nd Division");
-
-        } else if (grade >= 30) {
-            System.out.println("Grade: 3rd Division");
-
-        } else System.out.println("Grade: F");
-
-    }
-    //21.
-
-    public static void gradeCalculator() {
-
-        System.out.print("Enter your math grade: ");
-        float mathGrade = sc.nextFloat();
-        System.out.print("Enter your science grade: ");
-        float physicsGrade = sc.nextFloat();
-
-        System.out.print("Enter your Chemistry grade: ");
-        float chemistryGrade = sc.nextFloat();
-        System.out.print("Enter your English grade: ");
-        float englishGrade = sc.nextFloat();
-        System.out.print("Enter your Nepali grade: ");
-        float nepaliGrade = sc.nextFloat();
-
-
-        float termAverage = ((mathGrade + physicsGrade + chemistryGrade + englishGrade + nepaliGrade) / 5);
-
-        String reportCard = "*".repeat(15);
-        reportCard += "\t\tYOUR REPORT CARD \t\t";
-        reportCard += "*".repeat(15);
-        System.out.println(reportCard);
-        System.out.println("\tMath: " + mathGrade + "\n\tPhysics: " + physicsGrade + "\n\tChemistry: " + chemistryGrade + "\n\tEnglish: " + englishGrade + "\n\tNepali: " + nepaliGrade);
-        System.out.println("Your term average was: " + termAverage);
-        checkDivision(termAverage);
-        sc.close();
     }
 
 

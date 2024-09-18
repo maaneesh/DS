@@ -1,4 +1,4 @@
-import static Conditionals.Numbers.*;
+import static Conditionals.FlowControl.*;
 
 public class Main {
 
