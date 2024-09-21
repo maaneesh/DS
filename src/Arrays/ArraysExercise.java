@@ -342,7 +342,7 @@ public class ArraysExercise {
 
         }
         System.out.println("Elements at even position");
-        for (int i = 0; i <arr.length ; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (i % 2 == 0) {
                 System.out.print(arr[i] + " ");
             }
@@ -351,6 +351,7 @@ public class ArraysExercise {
         System.out.println();
 
     }
+
     public static void printOddPosition(int[] arr) {
         System.out.println("22. Print elements in odd position");
         if (arr == null || arr.length == 0) {
@@ -359,22 +360,137 @@ public class ArraysExercise {
 
         }
         System.out.println("Elements at odd position");
-        for (int i = 0; i <arr.length ; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (i % 2 == 1) {
                 System.out.print(arr[i] + " ");
             }
 
         }
         System.out.println();
+    }
 
+    public static void arraySum(int[] arr) {
+        System.out.println("23. Array Sum");
+        int sum = 0;
+        for (int val : arr) {
+            sum += val;
+        }
+        System.out.println("sum = " + sum);
+
+    }
+
+    public static void sortAscending(int[] arr) {
+        System.out.println("24. Sort array in ascending order");
+
+        int n = arr.length;
+        if (n <= 1) {
+            System.out.println("Sorted array: " + Arrays.toString(arr));
+            return;
+        }
+        boolean swapped;
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+
+            for (int j = 0; j < n - i - 1; j++) {
+
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+
+                }
+            }
+            if (!swapped) break;
+
+        }
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+
+    }
+
+    public static void sortDescending(int[] arr) {
+        System.out.println("25. Sort array in descending order");
+        int n = arr.length;
+        boolean swapped;
+        if (n <= 1) {
+            System.out.println("Sorted array: " + Arrays.toString(arr));
+            return;
+        }
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+
+            for (int j = 0; j < n - i - 1; j++) {
+
+                if (arr[j] < arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+
+                }
+            }
+            if (!swapped) break;
+
+        }
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+
+    }
+
+    public static void swapArrayusingTemp(int[] arr1, int[] arr2) {
+        System.out.println("26. Swap arrays");
+        System.out.println("Before swap:");
+        printArray(arr1, "Array1: ");
+
+        printArray(arr2, "Array2: ");
+
+        int length = arr2.length;
+        int[] tempArr = new int[length];
+        int idx = 0;
+        for (int i = 0; i < length; i++) {
+            tempArr[idx] = arr2[i];
+            arr2[i] = arr1[i];
+            arr1[i] = tempArr[idx];
+            idx++;
+
+        }
+
+        System.out.println("\nAfter swap:");
+        printArray(arr1, "Array1: ");
+
+        printArray(arr2, "Array2: ");
+    }
+    public static void swapThreeArrays(int[] arr1, int[] arr2, int[] arr3) {
+        System.out.println("27. Swap  three arrays");
+        System.out.println("Before swap:");
+        printArray(arr1, "Array1: ");
+        printArray(arr2, "Array2: ");
+        printArray(arr3, "Array3: ");
+
+        int length = arr1.length;
+
+        for (int i = 0; i < length; i++) {
+            int temp = arr1[i];
+            arr1[i] = arr2[i];
+            arr2[i] = arr3[i];
+            arr3[i] = temp;
+        }
+
+        System.out.println("\nAfter swap:");
+        printArray(arr1, "Array1: ");
+        printArray(arr2, "Array2: ");
+        printArray(arr3, "Array3: ");
     }
 
     public static void main(String[] args) {
         //1. calculateAverage(new int[]{1,2,3,4,5});
-        int[] arr1 = {10, 20, 30, 40, 40, 60, 30, 9, 9, 9, 9, 9, 9, 9, 9, 9999, 99, 9, 9999, 9, 9950, 60, 70, 44, 60};
+        int[] arr1 = {10, 20, 30, 40, 40, 60, 30, 99, 9, 9, 9, 9999, 99, 9, 9999, 9, 9950, 60, 70, 44, 60};
         int[] arr2 = {11, 23, 31, 73, 77, 45, 55, 11, 69};
         String[] arr3 = {"Apple", "Apple", "Bicycle", "Cat", "Dog", "Eggs", "Eggs", "Fox", "Fox", "Kite", "Kite"};
         String[] arr4 = {"Apple", "Box", "Dog", "Elephant", "Flower", "Eggs", "King", "Kiss"};
+
+        int[] arr5 = {11, 56, 87, 57, 15};
+        int[] arr6 = {52, 2, 20, 91, 98};
+        int[] arr7 = {25, 86, 73, 28, 60};
 
         // arrayContains(arr1, 100);
         // findIndex(arr1, 55);
@@ -394,10 +510,15 @@ public class ArraysExercise {
         // swapVals(arr1, 1, 7);
         // copyArray(arr1);
         // elementFrequency(arr1);
-       // printReverse(arr2);
-       // printEvenPosition(arr2);
-        printEvenPosition(arr2);
-        printOddPosition(arr2);
+        // printReverse(arr2);
+        // printEvenPosition(arr2);
+        //  printEvenPosition(arr2);
+        //  printOddPosition(arr2);
+        //  arraySum(arr1);
+        //sortAscending(arr1);
+        //sortDescending(arr1);
+       // swapArrayusingTemp(arr5, arr6);
+        swapThreeArrays(arr5, arr6, arr7);
 
 
     }
