@@ -461,6 +461,10 @@ public class ArraysExercise {
     }
     public static void swapThreeArrays(int[] arr1, int[] arr2, int[] arr3) {
         System.out.println("27. Swap  three arrays");
+
+        if (arr1.length != arr2.length || arr2.length != arr3.length) {
+            throw new IllegalArgumentException("All arrays must be of same length");
+        }
         System.out.println("Before swap:");
         printArray(arr1, "Array1: ");
         printArray(arr2, "Array2: ");
